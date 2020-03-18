@@ -1,0 +1,12 @@
+p Hello
+ form(action="/profile", method="post")
+ div
+    label(for="content") What to do:
+    input(type="text", name="content")
+div
+    label(for="timeLimit") When it should be done:
+    input(type="datetime-local", name="timeLimit")
+div 
+    input(type="submit", value="Add to list")
+
+a(href="/logout") Logout
