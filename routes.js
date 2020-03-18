@@ -77,7 +77,7 @@ router.post("/register", (req, res) => {
       }
     });
   }
-});
+}); 
 // GET login
 router.get("/login", forwardAuthenticated, (req, res) => {
   res.render("login", { message: req.flash("error") });
