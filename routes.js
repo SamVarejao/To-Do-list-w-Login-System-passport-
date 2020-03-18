@@ -9,6 +9,7 @@ const {
 } = require("./passport/authenticate");
 
 const User = require("./models/User"); //load user model
+const Post= require("./models/Post");
 
 //GET home
 router.get("/", forwardAuthenticated, (req, res) => {
@@ -91,10 +92,23 @@ router.post("/login", (req, res, next) => {
     failureFlash: "Login failed"
   })(req, res, next);
 });
-
+// GET profile
 router.get("/profile", ensureAuthenticated, (req, res) => {
   res.render("profile");
 });
+
+router.post("/profile", (req, res, next)=>{
+  const {content, timeLimit}= req.body;
+  console.log(req.body);
+  const newPost= new Post ({
+    content: content,
+    timeLimit:timeLimit
+  })
+  newPost.save();
+  console.log(newPost);
+  res.render("profile");
+  next();
+})
 
 router.get("/logout", (req, res) => {
   req.logout();
