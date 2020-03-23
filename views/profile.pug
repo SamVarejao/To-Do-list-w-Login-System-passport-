@@ -11,6 +11,10 @@ p Hello
 
 a(href="/logout") Logout
 div
-    p#pug-variable= postPlace
+    p Goal/ Time Limit
+    ul
+    each post in postPlace
+        li #{post.content + "| | "+ post.timeLimit}
+
 
     

@@ -105,7 +105,7 @@ router.post("/profile", (req, res, next) => {
   const newPost = new Post(req.body);
 
   newPost.save();
-  res.render("profile");
+  res.redirect("/profile");
   next();
 });
 
