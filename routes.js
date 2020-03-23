@@ -9,7 +9,7 @@ const {
 } = require("./passport/authenticate");
 
 const User = require("./models/User"); //load user model
-const Post= require("./models/Post");
+const Post = require("./models/Post");
 
 //GET home
 router.get("/", forwardAuthenticated, (req, res) => {
@@ -24,7 +24,7 @@ router.post("/register", (req, res) => {
   const { username, password, password2 } = req.body;
   let errors = [];
 
-//Conditions ---------------------------------------
+  //Conditions ---------------------------------------
   if (!username || !password || !password2) {
     errors.push(" Please enter all fields");
   }
@@ -45,9 +45,11 @@ router.post("/register", (req, res) => {
       password2Value2: password2
     });
   } else {
-    User.findOne({ name: username }).then(user => { //name (comes from mongoose schema)
-      if (user) {                                   //userValue (is part of the form)
-        errors.push(" User already exists");        //username is a value of the req body
+    User.findOne({ name: username }).then(user => {
+      //name (comes from mongoose schema)
+      if (user) {
+        //userValue (is part of the form)
+        errors.push(" User already exists"); //username is a value of the req body
         res.render("register", {
           errors,
           userValue: username,
@@ -78,7 +80,7 @@ router.post("/register", (req, res) => {
       }
     });
   }
-}); 
+});
 // GET login
 router.get("/login", forwardAuthenticated, (req, res) => {
   res.render("login", { message: req.flash("error") });
@@ -94,22 +96,20 @@ router.post("/login", (req, res, next) => {
 });
 // GET profile
 router.get("/profile", ensureAuthenticated, (req, res) => {
-  res.render("profile");
+  Post.find({}, (err, posts) => {
+    res.render("profile", { postPlace: posts });
+  });
 });
+// POST profile
+router.post("/profile", (req, res, next) => {
+  const newPost = new Post(req.body);
 
-router.post("/profile", (req, res, next)=>{
-  const {content, timeLimit}= req.body;
-  console.log(req.body);
-  const newPost= new Post ({
-    content: content,
-    timeLimit:timeLimit
-  })
   newPost.save();
-  console.log(newPost);
   res.render("profile");
   next();
-})
+});
 
+//GET logout
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("error", "User logged out.");
