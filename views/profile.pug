@@ -11,10 +11,11 @@ p Hello
 
 a(href="/logout") Logout
 div
-    p Goal/ Time Limit
+    p Goal ------ Time Limit
     ul
     each post in postPlace
-        li #{post.content + "| | "+ post.timeLimit}
-
+        li #{post.content}  ||   #{post.timeLimit}
+            a(href="profile/"+ post.id)
+                button(type="button") X
 
     

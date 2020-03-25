@@ -108,6 +108,12 @@ router.post("/profile", (req, res, next) => {
   res.redirect("/profile");
   next();
 });
+// DELETE profile
+router.get("/profile/:id", (req, res) => {
+  console.log(req.params.id);
+  Post.findByIdAndRemove(req.params.id).exec();
+  res.redirect("/profile");
+});
 
 //GET logout
 router.get("/logout", (req, res) => {
