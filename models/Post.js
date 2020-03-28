@@ -7,6 +7,9 @@ const ItemSchema = new mongoose.Schema({
   },
   timeLimit: {
     type: Date
+  },
+  author:{
+    type: mongoose.ObjectId
   }
   
 });

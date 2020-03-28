@@ -21,7 +21,7 @@ router.get("/register", forwardAuthenticated, (req, res) => {
 });
 //POST register
 router.post("/register", (req, res) => {
-  const { username, password, password2 } = req.body;
+  const { username, password, password2 } = req.body; // xValue = req.body
   let errors = [];
 
   //Conditions ---------------------------------------
@@ -38,18 +38,19 @@ router.post("/register", (req, res) => {
   }
 
   if (errors.length > 0) {
+    //if any error ocurrs the register page will be rendered with the fields filled with the previous values
     res.render("register", {
       errors,
-      userValue: username,
+      userValue: username, // registerFormValue = xValue = req.body
       passwordValue: password,
       password2Value2: password2
     });
   } else {
     User.findOne({ name: username }).then(user => {
-      //name (comes from mongoose schema)
+      // query ({schemaValue: xValue= req.body})
+
       if (user) {
-        //userValue (is part of the form)
-        errors.push(" User already exists"); //username is a value of the req body
+        errors.push(" User already exists");
         res.render("register", {
           errors,
           userValue: username,
@@ -60,6 +61,7 @@ router.post("/register", (req, res) => {
         const newUser = new User({
           name: username,
           password: password
+          // schemaValue= xValue= req.body
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -96,13 +98,22 @@ router.post("/login", (req, res, next) => {
 });
 // GET profile
 router.get("/profile", ensureAuthenticated, (req, res) => {
-  Post.find({}, (err, posts) => {
+  const currentUser= req.user;
+  
+  Post.find({author:currentUser}, (err, posts) => {
     res.render("profile", { postPlace: posts });
   });
 });
 // POST profile
 router.post("/profile", (req, res, next) => {
-  const newPost = new Post(req.body);
+  const { content, timeLimit } = req.body;
+  const author = req.user;
+
+  const newPost = new Post({
+    content, //shorthand for ( content: content )
+    timeLimit, // see register route for more info
+    author
+  });
 
   newPost.save();
   res.redirect("/profile");
