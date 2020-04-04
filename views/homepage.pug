@@ -3,8 +3,16 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Homepage
+        title= Homepage
+        style 
+            include ../includes/formStyle.css
+            link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto&display=swap")
     body
-        h1 Welcome !
-        a(href="/register") New here? Register!<br/>
-        a(href="/login") Been here already? Login!
+        div(class="form-container", style="text:center")
+            h1(class="welcomeTitle") Welcome !
+
+            div(class="link-container")
+                a(href="/register") New here? Register!<br/>
+
+            div(class="link-container")
+                a(href="/login") Been here already? Login!

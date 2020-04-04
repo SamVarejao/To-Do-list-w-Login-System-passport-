@@ -1,29 +1,28 @@
-html
-    head
-        title= Register
-        meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        style 
-            include ../includes/formStyle.css
-            link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto&display=swap")
-    body
-        div(class="form-container")
-            h1 Registration 
+head
+    title= Register
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    style 
+        include ../includes/formStyle.css
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto&display=swap")
+body
+    div(class="form-container")
+        h1 Registration 
   
-            form(action="/register", method="post")
+        form(action="/register", method="post")
 
-                label(for="username") Username:
-                input(type="text", name="username", value=userValue) 
+            label(for="username") Username:
+            input(type="text", name="username", value=userValue) 
 
-                label(for="password") Password:
-                input(type="password", name="password", value=passwordValue)
+            label(for="password") Password:
+            input(type="password", name="password", value=passwordValue)
 
-                label(for="password2") Repeat the password:
-                input(type="password", name="password2", value=password2Value2)
+            label(for="password2") Repeat the password:
+            input(type="password", name="password2", value=password2Value2)
 
-                input(type="submit", value="Register", class="button")          
+            input(type="submit", value="Register", class="button")          
 
-            div(class="error-container")
-                p#pug-variable= errors
+        div(class="error-container")
+            p#pug-variable= errors
                 
-            div(class="link-container")
-                a(href="/") Return to Homepage<br/>
+        div(class="link-container")
+            a(href="/") Return to Homepage<br/>

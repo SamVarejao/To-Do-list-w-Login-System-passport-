@@ -22,6 +22,7 @@
   position: relative;
   top: 30px;
   text-align: center;
+  margin: 3px;
 }
 
 .link-container:hover {
@@ -35,6 +36,9 @@
   height: 20%;
 }
 
+.welcomeTitle{
+  text-align: center;
+}
 form {
   display: grid;
   grid-template-columns: 30% 1fr;
