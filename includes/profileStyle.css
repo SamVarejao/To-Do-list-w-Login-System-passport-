@@ -1,14 +1,14 @@
 /*General Style*/
 a:link {
   color: whitesmoke;
-  text-decoration: none;
 }
 
 a:visited {
   color: whitesmoke;
+}
+.putaDEMERDA{
   text-decoration: none;
 }
-
 form {
   display: grid;
   grid-template-columns: 30% 1fr;
@@ -26,6 +26,7 @@ button {
   grid-column: 2/3;
 }
 /*///////////////////////////////////*/
+
 
 .mainContainer {
   display: flex;
@@ -48,6 +49,12 @@ button {
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 770;
+}
+.dashboard> h1{
+  color: whitesmoke;
+  font-weight: 770;
+  text-decoration: underline;
+  text-align: left;
 }
 /*///////////////////////////////////*/
 
