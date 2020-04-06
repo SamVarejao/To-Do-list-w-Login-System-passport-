@@ -1,21 +1,33 @@
-p Hello
- form(action="/profile", method="post")
-    div
-        label(for="content") What to do:
-        input(type="text", name="content")
-    div
-        label(for="timeLimit") When it should be done:
-        input(type="datetime-local", name="timeLimit")
-    div 
-        input(type="submit", value="Add to list")
+head
+    title= Register
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    style 
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto&display=swap")
+        include ../includes/profileStyle.css
 
-a(href="/logout") Logout
-div
-    p Goal ------ Time Limit
-    ul
-    each post in postPlace
-        li #{post.content}  ||   #{post.timeLimit}
-            a(href="profile/"+ post.id)
-                button(type="button") X
+body
+    div(class="mainContainer")
+        div(class="dashboard")
+            h1 Welcone #{user}
+
+            form(action="/profile", method="post")
+                
+                label(for="content") To do:
+                input(type="text", name="content" maxlength="40")
+        
+                label(for="timeLimit") Due:
+                input(type="datetime-local", name="timeLimit")
+
+                input(type="submit", value="Add to list", class="button")
+            div(class="button") 
+                a(href="/logout") Logout
+            p#pug-variable=errors
+
+        div(class="toDoList")
+            ul
+            each post in postPlace
+                li To do: #{post.content}  ⏳ Due:  #{post.timeLimit}
+                    a(href="profile/"+ post.id)
+                        button(type="button", class="delBtn") X
 
     

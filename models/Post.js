@@ -4,6 +4,7 @@ const ItemSchema = new mongoose.Schema({
   content: {
     type: String,
     required: true
+    
   },
   timeLimit: {
     type: Date

@@ -1,0 +1,113 @@
+/*General Style*/
+html, body {
+  background-color: whitesmoke;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+a:link {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:visited {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  text-align: left;
+}
+
+form > input {
+  background-color: whitesmoke;
+  outline: none;
+  margin: 3px;
+}
+
+input,
+button {
+  grid-column: 2/3;
+}
+/*///////////////////////////////////*/
+
+.mainContainer{
+  display: flex;
+  height: 100%;
+}
+
+/*Dashboard container*/
+.dashboard {
+  background-color: rgb(241, 160, 9);
+  width: 400px;
+  height: 100%;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  text-align: center;
+  margin: 0;
+  z-index: 2;
+}
+/*///////////////////////////////////*/
+
+/*toDoList Container*/
+.toDoList {
+  margin: auto auto;
+  overflow: scroll;
+  overflow-x: hidden;   
+  height: 90%;
+}
+
+.toDoList > li {
+  --dimension: 40px;
+  height: var(--dimension);
+  line-height: var(--dimension);
+  width: 1000px;
+  margin: 3px;
+  padding-left: 5px;
+  border: black;
+  border-style: solid;
+  list-style: none;
+  overflow: hidden;
+  background-color: wheat;
+  font-weight: 770;
+  text-align: left;
+}
+
+
+/*///////////////////////////////////*/
+
+/* Buttons */
+.delBtn {
+  width: 30px;
+  border: black;
+  border-style: solid;
+  text-align: center;
+  margin: 5px 3px;
+  padding: 3px;
+  float: right;
+}
+.delBtn:hover {
+  background-color: brown;
+}
+
+.button {
+  background-color: transparent;
+  color: whitesmoke;
+  border: whitesmoke;
+  border-style: solid;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  padding: 3px;
+}
+.button:hover {
+    background-color: brown;
+  }
+/*///////////////////////////////////*/

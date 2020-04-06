@@ -5,7 +5,7 @@ const router = express.Router();
 
 const {
   forwardAuthenticated,
-  ensureAuthenticated
+  ensureAuthenticated,
 } = require("./passport/authenticate");
 
 const User = require("./models/User"); //load user model
@@ -43,10 +43,10 @@ router.post("/register", (req, res) => {
       errors,
       userValue: username, // registerFormValue = xValue = req.body
       passwordValue: password,
-      password2Value2: password2
+      password2Value2: password2,
     });
   } else {
-    User.findOne({ name: username }).then(user => {
+    User.findOne({ name: username }).then((user) => {
       // query ({schemaValue: xValue= req.body})
 
       if (user) {
@@ -55,12 +55,12 @@ router.post("/register", (req, res) => {
           errors,
           userValue: username,
           passwordValue: password,
-          password2Value2: password2
+          password2Value2: password2,
         });
       } else {
         const newUser = new User({
           name: username,
-          password: password
+          password: password,
           // schemaValue= xValue= req.body
         });
 
@@ -74,7 +74,7 @@ router.post("/register", (req, res) => {
 
             newUser.save().then(
               res.render("login", {
-                message: "All done! User may log in now."
+                message: "All done! User may log in now.",
               })
             );
           });
@@ -93,15 +93,15 @@ router.post("/login", (req, res, next) => {
     successRedirect: "/profile",
     failureRedirect: "/login",
     failureFlash: true,
-    failureFlash: "Login failed"
+    failureFlash: "Login failed",
   })(req, res, next);
 });
 // GET profile
 router.get("/profile", ensureAuthenticated, (req, res) => {
-  const currentUser= req.user;
-  
-  Post.find({author:currentUser}, (err, posts) => {
-    res.render("profile", { postPlace: posts });
+  const currentUser = req.user;
+
+  Post.find({ author: currentUser }, (err, posts) => {
+    res.render("profile", { postPlace: posts, user: currentUser.name });
   });
 });
 // POST profile
@@ -112,7 +112,7 @@ router.post("/profile", (req, res, next) => {
   const newPost = new Post({
     content, //shorthand for ( content: content )
     timeLimit, // see register route for more info
-    author
+    author,
   });
 
   newPost.save();

@@ -1,3 +1,49 @@
+/*General Style*/
+h1 {
+  font-family: "Open Sans", sans-serif;
+  color: whitesmoke;
+  font-weight: 770;
+  text-decoration: underline;
+  text-align: left;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:visited {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  text-align: left;
+}
+
+form > input {
+  background-color: whitesmoke;
+  outline: none;
+  margin: 3px;
+}
+
+input,
+button {
+  grid-column: 2/3;
+}
+/*///////////////////////////////////*/
+
+/*Classes Style*/
 .form-container {
   background-color: rgb(241, 160, 9);
   display: inline-block;
@@ -13,11 +59,13 @@
   margin-left: -320px; /* This was supposed to be half the width, but for some reason i coudln´t center so i compensated */
   text-align: center;
 }
+/*///////////////////////////////////*/
 
+/*Link button*/
 .link-container {
   display: inline-block;
   width: 37%;
-  border: beige;
+  border: whitesmoke;
   border-style: solid;
   position: relative;
   top: 30px;
@@ -28,6 +76,7 @@
 .link-container:hover {
   background-color: brown;
 }
+/*///////////////////////////////////*/
 
 .error-container {
   display: inline-block;
@@ -39,27 +88,13 @@
 .welcomeTitle{
   text-align: center;
 }
-form {
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  text-align: left;
-}
+/*///////////////////////////////////*/
 
-form > input {
-  background-color: beige;
-  outline: none;
-  margin: 3px;
-}
-
-input,
-button {
-  grid-column: 2/3;
-}
-
+/*Submit button Style*/
 .button {
   background-color: transparent;
-  color: beige;
-  border: beige;
+  color: whitesmoke;
+  border: whitesmoke;
   border-style: solid;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
@@ -68,33 +103,9 @@ button {
 .button:hover {
   background-color: brown;
 }
+/* ////////////////////////////////////*/
 
-h1 {
-  font-family: "Open Sans", sans-serif;
-  color: beige;
-  font-weight: 770;
-  text-decoration: underline;
-  text-align: left;
-}
-
-body {
-  background-color: beige;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
-}
-
-a:link {
-  color: beige;
-  text-decoration: none;
-}
-
-a:visited {
-  color: beige;
-  text-decoration: none;
-}
-
+/*Queries*/
 @media (max-width:600px){
     .form-container{
       width: 400px;
@@ -125,3 +136,4 @@ a:visited {
     font-weight: 200;
   }
 }
+/*///////////////////////////////////*/
