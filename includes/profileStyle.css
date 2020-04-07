@@ -8,6 +8,7 @@ a:visited {
 }
 .removeUnderline {
   text-decoration: none;
+  color: black;
 }
 form {
   display: grid;
@@ -65,7 +66,7 @@ button {
   height: 90%;
 }
 
-.toDoList > li {
+.toDoList > a > li {
   --dimension: 40px;
   height: var(--dimension);
   line-height: var(--dimension);
@@ -85,18 +86,6 @@ button {
 /*///////////////////////////////////*/
 
 /* Buttons */
-.delBtn {
-  width: 30px;
-  border: black;
-  border-style: solid;
-  text-align: center;
-  margin: 5px 3px;
-  padding: 3px;
-  float: right;
-}
-.delBtn:hover {
-  background-color: brown;
-}
 
 .button {
   background-color: transparent;
@@ -115,15 +104,13 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: whitesmoke;
 }
 /*///////////////////////////////////////*/
 @media (max-width: 1100px) {
-  .toDoList > li {
-    --dimension: 60px;
+  .toDoList > a > li {
+    --dimension: 40px;
     width: 650px;
-  }
-  .delBtn {
-    margin: 15px 3px;
   }
 }
 @media (max-width: 900px) {
@@ -139,17 +126,24 @@ body {
   }
 }
 @media (max-width: 670px) {
-  .toDoList > li {
+  .toDoList > a > li {
     --dimension: 60px;
     width: 500px;
     font-size: 75%;
   }
-  .delBtn {
-    margin-left: 0;
-  }
 }
 @media (max-width: 520px) {
-  .dashboard{
+  .dashboard {
     width: 95%;
+  }
+}
+
+@media (max-width: 519px){
+  html, body{
+    font-size: small;
+  }
+  .toDoList > a > li {
+    width: 300px;
+    line-height: 20px;
   }
 }

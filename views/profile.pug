@@ -13,10 +13,10 @@ body
             form(action="/profile", method="post")
                 
                 label(for="content") To do:
-                input(type="text", name="content" maxlength="50")
+                input(type="text", name="content" maxlength="40")
         
                 label(for="timeLimit") Due:
-                input(type="datetime-local", name="timeLimit")
+                input(type="date", name="timeLimit")
 
                 input(type="submit", value="Add to list", class="button")
             div(class="button") 
@@ -26,8 +26,8 @@ body
         div(class="toDoList")
             ul
             each post in postPlace
-                li To do: #{post.content}  ⏳ Due:  #{post.timeLimit.toDateString()}
-                    a(href="profile/"+ post.id)
-                        button(type="button", class="delBtn") X
+                a(class="removeUnderline" ,href="profile/"+ post.id)
+                    li To do: #{post.content}  ⏳ Due:  #{post.timeLimit.toDateString()}
+
 
     

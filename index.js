@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
-const flash = require('connect-flash');
+const flash = require("connect-flash");
 
 const app = express();
 
@@ -17,16 +17,18 @@ app.set("views", "./views");
 mongoose
   .connect(process.env.DATABASE, {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
   })
   .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
+
+mongoose.set("useFindAndModify", false);
 
 app.use(
   session({
     secret: "secret",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 // Connect flash
