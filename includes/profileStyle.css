@@ -39,7 +39,7 @@ button {
 /*Dashboard container*/
 .dashboard {
   background-color: rgb(241, 160, 9);
-  width: 400px;
+  width: 25%;
   height: 100%;
   padding-top: 10px;
   padding-right: 30px;
@@ -115,4 +115,15 @@ button {
 html, body{
   margin: 0;
   padding: 0;
+}
+/*///////////////////////////////////////*/
+@media (max-width:1100px){
+  .toDoList > li{
+    --dimension: 60px;
+    font-size: smaller;
+    width: 750px;
+  }
+  .delBtn{
+    margin: 15px 3px;
+  }
 }

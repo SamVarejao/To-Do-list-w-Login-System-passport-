@@ -26,7 +26,7 @@ body
         div(class="toDoList")
             ul
             each post in postPlace
-                li To do: #{post.content}  ⏳ Due:  #{post.timeLimit}
+                li To do: #{post.content}  ⏳ Due:  #{post.timeLimit.toDateString()}
                     a(href="profile/"+ post.id)
                         button(type="button", class="delBtn") X
 
