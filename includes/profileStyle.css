@@ -21,6 +21,9 @@ form > input {
   outline: none;
   margin: 3px;
 }
+form > label{
+  color: whitesmoke;
+}
 
 input,
 button {
@@ -38,7 +41,7 @@ button {
 
 /*Dashboard container*/
 .dashboard {
-  background-color: rgb(241, 160, 9);
+  background: rgba(17, 4, 192, 0.6); 
   width: 25%;
   height: 100%;
   padding-top: 10px;
@@ -77,10 +80,10 @@ button {
   border-style: solid;
   list-style: none;
   overflow: hidden;
-  background-color: wheat;
+  background-color: rgba(245, 222, 179, 0.5);
   font-weight: 770;
   text-align: left;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /*///////////////////////////////////*/
@@ -104,7 +107,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: whitesmoke;
+  background-color: #ffffff;
+  background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 }
 /*///////////////////////////////////////*/
 @media (max-width: 1100px) {
@@ -138,8 +142,9 @@ body {
   }
 }
 
-@media (max-width: 519px){
-  html, body{
+@media (max-width: 519px) {
+  html,
+  body {
     font-size: small;
   }
   .toDoList > a > li {

@@ -1,6 +1,6 @@
 /*General Style*/
 h1 {
-  font-family: "Open Sans", sans-serif;
+  font-family:"Open Sans", sans-serif;
   color: whitesmoke;
   font-weight: 770;
   text-decoration: underline;
@@ -8,7 +8,8 @@ h1 {
 }
 
 body {
-  background-color: whitesmoke;
+  background-color: #ffffff;
+  background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   margin: 0;
@@ -36,6 +37,9 @@ form > input {
   outline: none;
   margin: 3px;
 }
+form > label{
+  color: whitesmoke;
+}
 
 input,
 button {
@@ -45,7 +49,7 @@ button {
 
 /*Classes Style*/
 .form-container {
-  background-color: rgb(241, 160, 9);
+  background-color: rgba(17, 4, 192, 0.6);
   display: inline-block;
   width: 600px;
   height: 350px;
@@ -85,7 +89,7 @@ button {
   height: 20%;
 }
 
-.welcomeTitle{
+.welcomeTitle {
   text-align: center;
 }
 /*///////////////////////////////////*/
@@ -106,18 +110,18 @@ button {
 /* ////////////////////////////////////*/
 
 /*Queries*/
-@media (max-width:600px){
-    .form-container{
-      width: 400px;
-      margin-left: -220px;
-    }
-    .link-container{
-      width: 80%;
-    }
+@media (max-width: 600px) {
+  .form-container {
+    width: 400px;
+    margin-left: -220px;
+  }
+  .link-container {
+    width: 80%;
+  }
 }
 
-@media (max-width:400px){
-  .form-container{
+@media (max-width: 400px) {
+  .form-container {
     width: 300px;
     left: 63%;
   }
@@ -127,12 +131,12 @@ button {
   }
 }
 
-@media (max-width:350px){
-  .form-container{
+@media (max-width: 350px) {
+  .form-container {
     width: 250px;
     left: 74%;
   }
-  body{
+  body {
     font-weight: 200;
   }
 }
