@@ -20,9 +20,7 @@ form > input {
   background-color: whitesmoke;
   outline: none;
   margin: 3px;
-}
-form > label{
-  color: whitesmoke;
+  align-self: right;
 }
 
 input,
